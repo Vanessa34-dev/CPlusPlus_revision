@@ -1,12 +1,21 @@
 #include <iostream>
 #include <stdint.h>
 
-enum ledState: int8_t{
+enum LedState: int8_t{
     led_off,
     led_on
+}; 
+
+enum Port{
+    HTTP=80,
+    MQTT=8883,
+    SSH=22,
+    TELNET=23,
+    SMTP= 25
 };
 int main(){
-    ledState state= led_on;
+    LedState state= led_on;
+    Port Protocol=HTTP;
     switch (state)
     {
     case led_off:
@@ -21,5 +30,6 @@ int main(){
         break;
     }
 
+    std::cout<< "Protocol port number" << Protocol;
     return 0;
 }
